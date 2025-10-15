@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用規約 - ToDoリストアプリ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .back-link a {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .back-link a:hover {
+            transform: translateY(-2px);
+        }
+        .highlight {
+            background: #f0f4ff;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+        }
+        .warning {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .section-number {
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 利用規約</h1>
+        
+        <div class="highlight">
+            <p><strong>最終更新日：</strong>2024年12月19日</p>
+            <p><strong>サービス名：</strong>ToDoリストアプリ</p>
+            <p><strong>運営者：</strong>個人開発者</p>
+        </div>
+
+        <h2><span class="section-number">1</span> サービスの概要</h2>
+        <p>ToDoリストアプリ（以下「本サービス」）は、タスク管理を支援するWebアプリケーションです。本サービスは無料で提供され、ユーザーはタスクの作成、編集、削除、カテゴリー分類などの機能を利用できます。</p>
+
+        <h2><span class="section-number">2</span> 利用規約の同意</h2>
+        <p>本サービスをご利用いただくことで、本利用規約に同意したものとみなされます。本利用規約に同意できない場合は、本サービスの利用を中止してください。</p>
+
+        <h2><span class="section-number">3</span> 利用可能な機能</h2>
+        <ul>
+            <li>タスクの作成、編集、削除</li>
+            <li>カテゴリー別のタスク分類</li>
+            <li>タスクの完了・未完了管理</li>
+            <li>フィルタリング機能（すべて/進行中/完了済み）</li>
+            <li>ローカルストレージによるデータ保存</li>
+            <li>PWA（Progressive Web App）としてのインストール</li>
+            <li>オフライン利用</li>
+        </ul>
+
+        <h2><span class="section-number">4</span> 利用制限</h2>
+        <div class="warning">
+            <p><strong>以下の行為は禁止されています：</strong></p>
+        </div>
+        <ul>
+            <li>本サービスの正常な運営を妨害する行為</li>
+            <li>他のユーザーや第三者に迷惑をかける行為</li>
+            <li>違法、有害、脅迫的、中傷的、わいせつ、その他不適切な内容の投稿</li>
+            <li>著作権、商標権、その他の知的財産権を侵害する行為</li>
+            <li>ウイルスやマルウェアを拡散する行為</li>
+            <li>本サービスをリバースエンジニアリングする行為</li>
+            <li>商用目的での無断使用</li>
+        </ul>
+
+        <h2><span class="section-number">5</span> データの取り扱い</h2>
+        <h3>5.1 データの保存</h3>
+        <ul>
+            <li>タスクデータはユーザーのデバイス（ブラウザのローカルストレージ）に保存されます</li>
+            <li>データはサーバーに送信されません</li>
+            <li>ブラウザのデータをクリアすると、タスクデータも削除されます</li>
+        </ul>
+
+        <h3>5.2 データの責任</h3>
+        <ul>
+            <li>ユーザーは自身のデータの管理責任を負います</li>
+            <li>データのバックアップはユーザーの責任で行ってください</li>
+            <li>データの紛失について、運営者は責任を負いません</li>
+        </ul>
+
+        <h2><span class="section-number">6</span> 免責事項</h2>
+        <ul>
+            <li>本サービスは「現状のまま」提供され、動作を保証するものではありません</li>
+            <li>データの紛失、損害、サービス停止による損失について責任を負いません</li>
+            <li>本サービスに起因する直接的・間接的な損害について責任を負いません</li>
+            <li>本サービスの継続的な提供を保証するものではありません</li>
+            <li>第三者によるサービスへの不正アクセスや改ざんについて責任を負いません</li>
+        </ul>
+
+        <h2><span class="section-number">7</span> サービスの変更・停止</h2>
+        <ul>
+            <li>運営者は事前の通知なく、本サービスの内容を変更・停止する場合があります</li>
+            <li>重要な変更がある場合は、可能な限り事前にお知らせします</li>
+            <li>サービス停止による損害について、運営者は責任を負いません</li>
+        </ul>
+
+        <h2><span class="section-number">8</span> 広告について</h2>
+        <p>本サービスでは、将来Google AdSenseなどの広告サービスを利用する可能性があります。広告の表示や内容については、広告提供者が管理します。</p>
+
+        <h2><span class="section-number">9</span> 知的財産権</h2>
+        <ul>
+            <li>本サービスのコンテンツ、デザイン、機能は運営者の知的財産です</li>
+            <li>ユーザーが作成したタスク内容の著作権はユーザーに帰属します</li>
+            <li>本サービスを無断で複製、改変、配布することは禁止されています</li>
+        </ul>
+
+        <h2><span class="section-number">10</span> 利用規約の変更</h2>
+        <p>運営者は必要に応じて本利用規約を変更する場合があります。重要な変更がある場合は、サービス上でお知らせします。変更後の利用規約は、サービス上での掲載時から効力を生じます。</p>
+
+        <h2><span class="section-number">11</span> 準拠法・管轄</h2>
+        <ul>
+            <li>本利用規約は日本法に準拠します</li>
+            <li>本サービスに関する紛争は、日本の裁判所を専属的合意管轄とします</li>
+        </ul>
+
+        <h2><span class="section-number">12</span> お問い合わせ</h2>
+        <p>本利用規約に関するご質問やご不明な点がございましたら、以下までお問い合わせください：</p>
+        <ul>
+            <li><strong>メール：</strong>開発者（連絡先は準備中）</li>
+            <li><strong>サービスURL：</strong>https://mellifluous-banoffee-06df94.netlify.app</li>
+        </ul>
+
+        <div class="highlight">
+            <p><strong>本サービスをご利用いただき、ありがとうございます。</strong><br>
+            安全で快適にご利用いただけるよう、継続的に改善に努めてまいります。</p>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">← ToDoアプリに戻る</a>
+        </div>
+    </div>
+</body>
+</html>

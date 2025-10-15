@@ -441,6 +441,28 @@ header h1 {
     margin-bottom: 15px;
 }
 
+.legal-links {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #999;
+}
+
+.legal-links a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.legal-links a:hover {
+    color: #5a6fd8;
+    text-decoration: underline;
+}
+
+.separator {
+    margin: 0 8px;
+    color: #ccc;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 10px;
