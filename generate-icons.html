@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アイコン生成ツール</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .icon-preview {
+            text-align: center;
+            margin: 20px 0;
+        }
+        canvas {
+            border: 2px solid #ddd;
+            margin: 10px;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+        .download-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .download-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .instructions {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 ToDoアプリ アイコン生成ツール</h1>
+        
+        <div class="icon-preview">
+            <h3>192x192 アイコン</h3>
+            <canvas id="icon192" width="192" height="192"></canvas>
+            
+            <h3>512x512 アイコン</h3>
+            <canvas id="icon512" width="512" height="512"></canvas>
+        </div>
+        
+        <div style="text-align: center;">
+            <button onclick="generateIcons()">アイコンを生成</button>
+            <button onclick="downloadIcons()">PNGファイルをダウンロード</button>
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 手順</h3>
+            <ol>
+                <li>「アイコンを生成」ボタンをクリック</li>
+                <li>「PNGファイルをダウンロード」ボタンをクリック</li>
+                <li>ダウンロードした2つのファイルをtodo-appフォルダに保存</li>
+                <li>GitHub Desktopでコミット・プッシュ</li>
+            </ol>
+        </div>
+        
+        <div class="download-links" id="downloadLinks" style="display: none;">
+            <a id="download192" download="icon-192.png">📱 icon-192.png をダウンロード</a>
+            <a id="download512" download="icon-512.png">💻 icon-512.png をダウンロード</a>
+        </div>
+    </div>
+
+    <script>
+        let icon192Canvas, icon512Canvas;
+        let icon192DataURL, icon512DataURL;
+
+        function generateIcons() {
+            // 192x192アイコン生成
+            icon192Canvas = document.getElementById('icon192');
+            const ctx192 = icon192Canvas.getContext('2d');
+            drawIcon(ctx192, 192);
+            icon192DataURL = icon192Canvas.toDataURL('image/png');
+
+            // 512x512アイコン生成
+            icon512Canvas = document.getElementById('icon512');
+            const ctx512 = icon512Canvas.getContext('2d');
+            drawIcon(ctx512, 512);
+            icon512DataURL = icon512Canvas.toDataURL('image/png');
+
+            document.getElementById('downloadLinks').style.display = 'block';
+            alert('アイコンが生成されました！ダウンロードボタンが表示されます。');
+        }
+
+        function drawIcon(ctx, size) {
+            const scale = size / 192;
+            
+            // 背景グラデーション
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(1, '#764ba2');
+            
+            // 背景
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // 角丸
+            ctx.globalCompositeOperation = 'destination-in';
+            ctx.beginPath();
+            ctx.roundRect(0, 0, size, size, 32 * scale);
+            ctx.fill();
+            ctx.globalCompositeOperation = 'source-over';
+            
+            // メインのノート背景
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+            ctx.beginPath();
+            ctx.roundRect(32 * scale, 40 * scale, 128 * scale, 112 * scale, 12 * scale);
+            ctx.fill();
+            
+            // ノートの螺旋部分
+            ctx.strokeStyle = '#E0E0E0';
+            ctx.lineWidth = 2 * scale;
+            ctx.beginPath();
+            ctx.arc(140 * scale, 52 * scale, 8 * scale, 0, Math.PI * 2);
+            ctx.stroke();
+            
+            // タスクリストの線
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = 3 * scale;
+            ctx.lineCap = 'round';
+            
+            // 3本の線
+            ctx.beginPath();
+            ctx.moveTo(48 * scale, 72 * scale);
+            ctx.lineTo(120 * scale, 72 * scale);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(48 * scale, 92 * scale);
+            ctx.lineTo(120 * scale, 92 * scale);
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(48 * scale, 112 * scale);
+            ctx.lineTo(120 * scale, 112 * scale);
+            ctx.stroke();
+            
+            // チェックボックス
+            ctx.strokeStyle = '#4CAF50';
+            ctx.lineWidth = 2 * scale;
+            
+            // 未完了のチェックボックス
+            ctx.strokeRect(48 * scale, 66 * scale, 12 * scale, 12 * scale);
+            ctx.strokeRect(48 * scale, 86 * scale, 12 * scale, 12 * scale);
+            
+            // 完了済みのチェックボックス（緑背景）
+            ctx.fillStyle = '#4CAF50';
+            ctx.fillRect(48 * scale, 106 * scale, 12 * scale, 12 * scale);
+            
+            // チェックマーク
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 2 * scale;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.beginPath();
+            ctx.moveTo(52 * scale, 110 * scale);
+            ctx.lineTo(56 * scale, 114 * scale);
+            ctx.lineTo(60 * scale, 110 * scale);
+            ctx.stroke();
+            
+            // 装飾的な星
+            ctx.fillStyle = '#FFD700';
+            ctx.globalAlpha = 0.8;
+            drawStar(ctx, 144 * scale, 120 * scale, 5, 8 * scale, 4 * scale);
+            ctx.globalAlpha = 1;
+            
+            // 小さな装飾ドット
+            ctx.fillStyle = '#FFD700';
+            ctx.globalAlpha = 0.6;
+            ctx.beginPath();
+            ctx.arc(160 * scale, 32 * scale, 3 * scale, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.globalAlpha = 0.5;
+            ctx.beginPath();
+            ctx.arc(24 * scale, 160 * scale, 2 * scale, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(168 * scale, 160 * scale, 2 * scale, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+        }
+
+        function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius) {
+            let rot = Math.PI / 2 * 3;
+            let x = cx;
+            let y = cy;
+            const step = Math.PI / spikes;
+
+            ctx.beginPath();
+            ctx.moveTo(cx, cy - outerRadius);
+            for (let i = 0; i < spikes; i++) {
+                x = cx + Math.cos(rot) * outerRadius;
+                y = cy + Math.sin(rot) * outerRadius;
+                ctx.lineTo(x, y);
+                rot += step;
+
+                x = cx + Math.cos(rot) * innerRadius;
+                y = cy + Math.sin(rot) * innerRadius;
+                ctx.lineTo(x, y);
+                rot += step;
+            }
+            ctx.lineTo(cx, cy - outerRadius);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        function downloadIcons() {
+            if (!icon192DataURL || !icon512DataURL) {
+                alert('まず「アイコンを生成」ボタンをクリックしてください！');
+                return;
+            }
+
+            // ダウンロードリンクを設定
+            document.getElementById('download192').href = icon192DataURL;
+            document.getElementById('download512').href = icon512DataURL;
+            
+            alert('ダウンロードリンクが準備できました！上のリンクをクリックしてファイルをダウンロードしてください。');
+        }
+    </script>
+</body>
+</html>
