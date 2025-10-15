@@ -1,34 +1,47 @@
-<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<svg width="192" height="192" viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景グラデーション -->
   <defs>
-    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
     </linearGradient>
+    <linearGradient id="checkGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E7D32;stop-opacity:1" />
+    </linearGradient>
   </defs>
   
-  <!-- 背景 -->
-  <rect width="512" height="512" rx="115" fill="url(#gradient)"/>
+  <!-- メイン背景 -->
+  <rect width="192" height="192" rx="32" fill="url(#bgGradient)"/>
   
-  <!-- チェックリストの背景 -->
-  <rect x="106" y="106" width="300" height="300" rx="20" fill="white" opacity="0.95"/>
+  <!-- シャドウ効果 -->
+  <rect width="192" height="192" rx="32" fill="url(#bgGradient)" opacity="0.8"/>
   
-  <!-- チェックマーク1 -->
-  <circle cx="150" cy="180" r="18" fill="none" stroke="#667eea" stroke-width="6"/>
-  <path d="M 144 180 L 149 185 L 156 175" fill="none" stroke="#667eea" stroke-width="5" stroke-linecap="round"/>
+  <!-- メインのノート/リスト背景 -->
+  <rect x="32" y="40" width="128" height="112" rx="12" fill="white" opacity="0.95"/>
   
-  <!-- ライン1 -->
-  <rect x="185" y="173" width="180" height="14" rx="7" fill="#667eea" opacity="0.7"/>
+  <!-- ノートの螺旋部分 -->
+  <circle cx="140" cy="52" r="8" fill="none" stroke="#E0E0E0" stroke-width="2"/>
+  <path d="M 140 44 A 8 8 0 0 1 132 52 A 8 8 0 0 1 140 60 A 8 8 0 0 1 148 52 A 8 8 0 0 1 140 44" fill="none" stroke="#E0E0E0" stroke-width="1.5"/>
   
-  <!-- チェックマーク2 -->
-  <circle cx="150" cy="256" r="18" fill="none" stroke="#764ba2" stroke-width="6"/>
-  <path d="M 144 256 L 149 261 L 156 251" fill="none" stroke="#764ba2" stroke-width="5" stroke-linecap="round"/>
+  <!-- タスクリストの線 -->
+  <line x1="48" y1="72" x2="120" y2="72" stroke="#667eea" stroke-width="3" stroke-linecap="round"/>
+  <line x1="48" y1="92" x2="120" y2="92" stroke="#667eea" stroke-width="3" stroke-linecap="round"/>
+  <line x1="48" y1="112" x2="120" y2="112" stroke="#667eea" stroke-width="3" stroke-linecap="round"/>
   
-  <!-- ライン2 -->
-  <rect x="185" y="249" width="150" height="14" rx="7" fill="#764ba2" opacity="0.7"/>
+  <!-- チェックボックス -->
+  <rect x="48" y="66" width="12" height="12" rx="2" fill="white" stroke="#4CAF50" stroke-width="2"/>
+  <rect x="48" y="86" width="12" height="12" rx="2" fill="white" stroke="#4CAF50" stroke-width="2"/>
+  <rect x="48" y="106" width="12" height="12" rx="2" fill="url(#checkGradient)" stroke="#4CAF50" stroke-width="2"/>
   
-  <!-- チェックマーク3（未完了） -->
-  <circle cx="150" cy="332" r="18" fill="none" stroke="#999" stroke-width="6"/>
+  <!-- チェックマーク -->
+  <path d="M 52 110 L 56 114 L 60 110" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   
-  <!-- ライン3 -->
-  <rect x="185" y="325" width="120" height="14" rx="7" fill="#999" opacity="0.5"/>
+  <!-- 装飾的な星 -->
+  <path d="M 144 120 L 146 126 L 152 126 L 147 130 L 149 136 L 144 132 L 139 136 L 141 130 L 136 126 L 142 126 Z" fill="#FFD700" opacity="0.8"/>
+  
+  <!-- 小さな装飾ドット -->
+  <circle cx="160" cy="32" r="3" fill="#FFD700" opacity="0.6"/>
+  <circle cx="24" cy="160" r="2" fill="#FFD700" opacity="0.5"/>
+  <circle cx="168" cy="160" r="2" fill="#FFD700" opacity="0.5"/>
 </svg>
