@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="シンプルで美しいタスク管理アプリ。オフラインでも使えるToDoリスト。">
+    <meta name="theme-color" content="#667eea">
+    <title>ToDoリスト - タスク管理アプリ</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- iOS Safari用 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ToDoリスト">
+    <link rel="apple-touch-icon" href="icon.svg">
+    
+    <!-- アイコン -->
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <header>
+                <h1>📝 ToDoリスト</h1>
+                <p class="subtitle">タスクを整理して生産性を向上させましょう</p>
+            </header>
+
+            <div class="input-section">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        placeholder="新しいタスクを入力..." 
+                        autocomplete="off"
+                    >
+                    <select id="categorySelect" class="category-select">
+                        <option value="general">📋 一般</option>
+                        <option value="work">💼 仕事</option>
+                        <option value="study">📚 勉強</option>
+                        <option value="personal">🏠 プライベート</option>
+                        <option value="shopping">🛒 買い物</option>
+                        <option value="health">💪 健康</option>
+                    </select>
+                </div>
+                <button id="addBtn" class="add-btn">
+                    <span>追加</span>
+                </button>
+            </div>
+
+            <div class="filter-section">
+                <button class="filter-btn active" data-filter="all">すべて</button>
+                <button class="filter-btn" data-filter="active">進行中</button>
+                <button class="filter-btn" data-filter="completed">完了済み</button>
+            </div>
+
+            <div class="stats">
+                <span id="taskCount">0</span> 件のタスク
+            </div>
+
+            <ul id="taskList" class="task-list"></ul>
+
+            <div class="footer">
+                <button id="clearCompleted" class="clear-btn">完了したタスクを削除</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <!-- Service Worker登録 -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker登録成功:', registration);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker登録失敗:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
