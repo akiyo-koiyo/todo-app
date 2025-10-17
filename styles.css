@@ -547,3 +547,96 @@ header h1 {
         padding: 12px 20px;
     }
 }
+
+/* AdSense 広告スタイル */
+.ad-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.banner-ad {
+    width: 100%;
+    max-width: 728px;
+    min-height: 90px;
+}
+
+.banner-ad ins {
+    width: 100%;
+    height: 90px;
+    display: block;
+}
+
+/* モバイル用広告調整 */
+@media (max-width: 768px) {
+    .banner-ad {
+        max-width: 100%;
+        min-height: 50px;
+    }
+    
+    .banner-ad ins {
+        height: 50px;
+    }
+    
+    .ad-container {
+        margin: 15px 0;
+        padding: 5px;
+    }
+}
+
+/* 広告のレスポンシブ対応 */
+.adsbygoogle {
+    display: block;
+    text-align: center;
+}
+
+/* 広告の読み込み状態 */
+.ad-container.loading {
+    background: rgba(255, 255, 255, 0.05);
+    animation: pulse 2s infinite;
+}
+
+/* 広告エラー時のスタイル */
+.ad-container.error {
+    background: rgba(255, 255, 255, 0.05);
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+    padding: 20px;
+}
+
+/* 特徴ハイライト */
+.feature-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.feature-tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .feature-highlights {
+        gap: 8px;
+        margin-top: 10px;
+    }
+    
+    .feature-tag {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+}
